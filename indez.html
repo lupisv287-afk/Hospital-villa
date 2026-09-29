@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Municipal Guadalupe Victoria</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<div id="inicio">
+
+    <header>
+
+        <div class="logo">
+            <div class="logo-icon">✚</div>
+
+            <div>
+                Hospital Municipal
+                <br>
+                Guadalupe Victoria Bicentenario
+            </div>
+        </div>
+
+        <nav>
+            <a onclick="mostrar('inicio')">Inicio</a>
+            <a>Servicios</a>
+            <a>Nosotros</a>
+            <a>Contacto</a>
+
+            <button class="btn" onclick="mostrar('login')">
+                Iniciar sesión
+            </button>
+        </nav>
+
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <h1>Cuidado cerca de ti</h1>
+
+                <h3>
+                    Sistema Web de Control de Citas
+                    y Expedientes para un Hospital
+                </h3>
+
+                <p>
+                    Agenda tus citas, consulta tu expediente médico
+                    y accede a la información de los servicios del hospital.
+                </p>
+
+                <button class="btn" onclick="mostrar('registro')">
+                    Agendar cita
+                </button>
+
+            </div>
+
+            <div class="imagen"></div>
+
+        </section>
+
+        <section class="cards">
+
+            <div class="card">
+                <div class="icon">📅</div>
+                <h3>Citas Médicas</h3>
+                <p>Agenda y consulta tus citas.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📁</div>
+                <h3>Expedientes Clínicos</h3>
+                <p>Consulta tu historial médico.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👨‍⚕️</div>
+                <h3>Nuestros Especialistas</h3>
+                <p>Conoce a nuestros médicos.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">ⓘ</div>
+                <h3>Información del Hospital</h3>
+                <p>Servicios, horarios y contacto.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div id="login" class="oculto">
+
+    <div class="form-container">
+
+        <p class="link" onclick="mostrar('inicio')">
+            ← Volver
+        </p>
+
+        <h2>Iniciar sesión</h2>
+
+        <p class="descripcion">
+            Ingresa a tu cuenta para continuar
+        </p>
+
+        <div class="form-group">
+            <label>Correo electrónico o usuario</label>
+            <input id="correoLogin" type="email">
+        </div>
+
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input id="passwordLogin" type="password">
+        </div>
+
+        <button class="btn" onclick="iniciarSesion()">
+            Iniciar sesión
+        </button>
+
+        <p class="link" onclick="mostrar('recuperar')">
+            ¿Olvidaste tu contraseña?
+        </p>
+
+        <p style="text-align:center">
+            o inicia con
+        </p>
+
+        <br>
+
+        <button class="btn" style="background:#555">
+            Google
+        </button>
+
+        <br><br>
+
+        <button class="btn" style="background:#555">
+            Microsoft
+        </button>
+
+        <p class="link" onclick="mostrar('registro')">
+            ¿No tienes una cuenta? Regístrate aquí
+        </p>
+
+    </div>
+
+</div>
+
+<div id="recuperar" class="oculto">
+
+    <div class="form-container">
+
+        <p class="link" onclick="mostrar('login')">
+            ← Volver
+        </p>
+
+        <h2>Recuperar contraseña</h2>
+
+        <p class="descripcion">
+            Ingresa tu correo electrónico y te enviaremos
+            un enlace para restablecer tu contraseña.
+        </p>
+
+        <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email">
+        </div>
+
+        <button class="btn"
+                onclick="alert('Se ha enviado el enlace de recuperación.')">
+            Enviar enlace
+        </button>
+
+        <p class="link" onclick="mostrar('login')">
+            ¿Ya recordaste tu contraseña? Iniciar sesión
+        </p>
+
+    </div>
+
+</div>
+
+<div id="restablecer" class="oculto">
+
+    <div class="form-container">
+
+        <p class="link" onclick="mostrar('recuperar')">
+            ← Volver
+        </p>
+
+        <h2>Crear nueva contraseña</h2>
+
+        <p class="descripcion">
+            Ingresa tu nueva contraseña para tu cuenta.
+        </p>
+
+        <div class="form-group">
+            <label>Nueva contraseña</label>
+            <input type="password">
+        </div>
+
+        <div class="form-group">
+            <label>Confirmar contraseña</label>
+            <input type="password">
+        </div>
+
+        <p>
+            ✔ Mínimo 8 caracteres<br>
+            ✔ Una letra mayúscula<br>
+            ✔ Una letra minúscula<br>
+            ✔ Un número
+        </p>
+
+        <button class="btn"
+                onclick="alert('Contraseña restablecida correctamente')">
+            Restablecer contraseña
+        </button>
+
+    </div>
+
+</div>
+
+<div id="registro" class="oculto">
+
+    <div class="form-container">
+
+        <h2>Crear cuenta</h2>
+
+        <p class="descripcion">
+            Completa tus datos para registrarte
+        </p>
+
+        <div class="form-group">
+            <label>Nombre(s)</label>
+            <input type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email">
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel">
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date">
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de usuario</label>
+
+            <select>
+                <option>Paciente</option>
+                <option>Médico</option>
+                <option>Administrador</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password">
+        </div>
+
+        <div class="form-group">
+            <label>Confirmar contraseña</label>
+            <input type="password">
+        </div>
+
+        <label>
+            <input type="checkbox">
+            Acepto los términos y condiciones
+        </label>
+
+        <button class="btn" onclick="mostrar('roles')">
+            Crear cuenta
+        </button>
+
+        <p class="link" onclick="mostrar('login')">
+            ¿Ya tienes una cuenta? Iniciar sesión
+        </p>
+
+    </div>
+
+</div>
+
+<div id="roles" class="oculto">
+
+    <div class="container">
+
+        <h2 style="text-align:center;margin-top:40px;">
+            Selecciona tu tipo de usuario
+        </h2>
+
+        <div class="roles">
+
+            <div class="role">
+
+                <div class="role-icon">👤</div>
+
+                <h3>Paciente</h3>
+
+                <p>
+                    Agenda y consulta tus citas
+                    y expedientes.
+                </p>
+
+                <button class="btn"
+                        onclick="mostrar('paciente')">
+                    Entrar
+                </button>
+
+            </div>
+
+
+            <div class="role">
+
+                <div class="role-icon">👨‍⚕️</div>
+
+                <h3>Médico</h3>
+
+                <p>
+                    Consulta expedientes,
+                    gestiona citas y pacientes.
+                </p>
+
+                <button class="btn"
+                        onclick="mostrar('medico')">
+                    Entrar
+                </button>
+
+            </div>
+
+
+            <div class="role">
+
+                <div class="role-icon">⚙️</div>
+
+                <h3>Administrador</h3>
+
+                <p>
+                    Gestiona usuarios,
+                    citas e información.
+                </p>
+
+                <button class="btn"
+                        onclick="mostrar('administrador')">
+                    Entrar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="paciente" class="oculto">
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h3>✚ Hospital</h3>
+
+            <button onclick="mostrar('paciente')">
+                🏠 Inicio
+            </button>
+
+            <button onclick="mostrar('misCitas')">
+                📅 Mis citas
+            </button>
+
+            <button onclick="mostrar('expediente')">
+                📁 Mi expediente
+            </button>
+
+            <button>
+                🔔 Notificaciones
+            </button>
+
+            <button>
+                👤 Perfil
+            </button>
+
+            <button onclick="mostrar('inicio')">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <main class="dashboard-content">
+
+            <div class="welcome">
+
+                <div>
+                    <h1>Bienvenida, María</h1>
+
+                    <p>
+                        Aquí puedes consultar y gestionar
+                        tus citas médicas.
+                    </p>
+                </div>
+
+                <button class="btn"
+                        onclick="mostrar('agendar')">
+                    + Agendar cita
+                </button>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    📅
+                    <h2>3</h2>
+                    Próximas citas
+                </div>
+
+                <div class="stat">
+                    📋
+                    <h2>3</h2>
+                    Mis citas
+                </div>
+
+                <div class="stat">
+                    📁
+                    <h2>1</h2>
+                    Mi expediente
+                </div>
+
+                <div class="stat">
+                    🔔
+                    <h2>0</h2>
+                    Notificaciones
+                </div>
+
+            </div>
+
+
+            <h2>Próximas citas</h2>
+
+            <br>
+
+            <table>
+
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Especialidad</th>
+                    <th>Médico</th>
+                    <th>Estado</th>
+                </tr>
+
+                <tr>
+                    <td>15/10/2026</td>
+                    <td>10:00 am</td>
+                    <td>Medicina General</td>
+                    <td>Dr. Juan Pérez</td>
+                    <td>
+                        <span class="estado">
+                            Confirmada
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>22/10/2026</td>
+                    <td>11:30 am</td>
+                    <td>Pediatría</td>
+                    <td>Dra. Ana Torres</td>
+                    <td>
+                        <span class="estado">
+                            Pendiente
+                        </span>
+                    </td>
+                </tr>
+
+            </table>
+
+        </main>
+
+    </div>
+
+</div>
+
+<div id="agendar" class="oculto">
+
+    <div class="form-container">
+
+        <p class="link" onclick="mostrar('paciente')">
+            ← Volver
+        </p>
+
+        <h2>Agendar cita</h2>
+
+        <p class="descripcion">
+            Completa los datos de tu cita
+        </p>
+
+        <div class="form-group">
+
+            <label>Especialidad</label>
+
+            <select>
+                <option>Medicina General</option>
+                <option>Pediatría</option>
+                <option>Ginecología</option>
+                <option>Cardiología</option>
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Médico</label>
+
+            <select>
+                <option>Dr. Juan Pérez</option>
+                <option>Dra. Ana Torres</option>
+                <option>Dra. Laura Díaz</option>
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Fecha</label>
+
+            <input type="date">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Hora</label>
+
+            <select>
+                <option>10:00 am</option>
+                <option>11:30 am</option>
+                <option>1:00 pm</option>
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Motivo de la consulta</label>
+
+            <textarea placeholder="Escribe el motivo..."></textarea>
+
+        </div>
+
+
+        <button class="btn"
+                onclick="alert('Cita registrada correctamente'); mostrar('paciente')">
+
+            Confirmar cita
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="misCitas" class="oculto">
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h3>✚ Hospital</h3>
+
+            <button onclick="mostrar('paciente')">
+                🏠 Inicio
+            </button>
+
+            <button onclick="mostrar('misCitas')">
+                📅 Mis citas
+            </button>
+
+            <button onclick="mostrar('expediente')">
+                📁 Mi expediente
+            </button>
+
+            <button onclick="mostrar('inicio')">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <main class="dashboard-content">
+
+            <div class="welcome">
+
+                <h1>Mis citas</h1>
+
+                <button class="btn"
+                        onclick="mostrar('agendar')">
+                    + Agendar cita
+                </button>
+
+            </div>
+
+
+            <table>
+
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Especialidad</th>
+                    <th>Médico</th>
+                    <th>Estado</th>
+                </tr>
+
+                <tr>
+                    <td>15/10/2026</td>
+                    <td>10:00 am</td>
+                    <td>Medicina General</td>
+                    <td>Dr. Juan Pérez</td>
+                    <td>Confirmada</td>
+                </tr>
+
+                <tr>
+                    <td>22/10/2026</td>
+                    <td>11:30 am</td>
+                    <td>Pediatría</td>
+                    <td>Dra. Ana Torres</td>
+                    <td>Pendiente</td>
+                </tr>
+
+                <tr>
+                    <td>05/11/2026</td>
+                    <td>09:00 am</td>
+                    <td>Ginecología</td>
+                    <td>Dra. Laura Díaz</td>
+                    <td>Confirmada</td>
+                </tr>
+
+            </table>
+
+        </main>
+
+    </div>
+
+</div>
+
+<div id="expediente" class="oculto">
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h3>✚ Hospital</h3>
+
+            <button onclick="mostrar('paciente')">
+                🏠 Inicio
+            </button>
+
+            <button onclick="mostrar('misCitas')">
+                📅 Mis citas
+            </button>
+
+            <button onclick="mostrar('expediente')">
+                📁 Mi expediente
+            </button>
+
+            <button onclick="mostrar('inicio')">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <main class="dashboard-content">
+
+            <h1>Mi expediente médico</h1>
+
+            <br>
+
+            <div class="expediente">
+
+                <h2>María López García</h2>
+
+                <div class="datos">
+
+                    <p><b>Edad:</b> 20 años</p>
+
+                    <p><b>Sexo:</b> Femenino</p>
+
+                    <p><b>CURP:</b> LOMGM000420MDFR08</p>
+
+                    <p><b>Alergias:</b> Ninguna</p>
+
+                    <p><b>Teléfono:</b> 722 123 4567</p>
+
+                    <p><b>Tipo de sangre:</b> O+</p>
+
+                    <p>
+                        <b>Dirección:</b>
+                        Villa Victoria, Estado de México
+                    </p>
+
+                    <p>
+                        <b>Contacto de emergencia:</b>
+                        722 987 6543
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<div id="medico" class="oculto">
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h3>✚ Hospital</h3>
+
+            <button onclick="mostrar('medico')">
+                🏠 Inicio
+            </button>
+
+            <button>
+                📅 Citas
+            </button>
+
+            <button>
+                👥 Pacientes
+            </button>
+
+            <button>
+                📁 Expedientes
+            </button>
+
+            <button>
+                👤 Perfil
+            </button>
+
+            <button onclick="mostrar('inicio')">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <main class="dashboard-content">
+
+            <div class="welcome">
+
+                <div>
+
+                    <h1>Bienvenido, Dr. Juan</h1>
+
+                    <p>
+                        Aquí puedes consultar y gestionar
+                        tus pacientes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    📅
+                    <h2>12</h2>
+                    Citas de hoy
+                </div>
+
+                <div class="stat">
+                    👥
+                    <h2>28</h2>
+                    Pacientes
+                </div>
+
+                <div class="stat">
+                    📁
+                    <h2>28</h2>
+                    Expedientes
+                </div>
+
+                <div class="stat">
+                    📋
+                    <h2>10</h2>
+                    Recetas
+                </div>
+
+            </div>
+
+
+            <h2>Citas de hoy</h2>
+
+            <br>
+
+            <table>
+
+                <tr>
+                    <th>Hora</th>
+                    <th>Paciente</th>
+                    <th>Especialidad</th>
+                    <th>Estado</th>
+                </tr>
+
+                <tr>
+                    <td>10:00 am</td>
+                    <td>María López</td>
+                    <td>Medicina General</td>
+                    <td>Confirmada</td>
+                </tr>
+
+                <tr>
+                    <td>11:30 am</td>
+                    <td>Carlos Ramírez</td>
+                    <td>Pediatría</td>
+                    <td>Confirmada</td>
+                </tr>
+
+                <tr>
+                    <td>1:00 pm</td>
+                    <td>Ana Torres</td>
+                    <td>Ginecología</td>
+                    <td>Pendiente</td>
+                </tr>
+
+            </table>
+
+        </main>
+
+    </div>
+
+</div>
+
+<div id="administrador" class="oculto">
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h3>✚ Hospital</h3>
+
+            <button onclick="mostrar('administrador')">
+                🏠 Inicio
+            </button>
+
+            <button>
+                👥 Usuarios
+            </button>
+
+            <button>
+                📅 Citas
+            </button>
+
+            <button>
+                👤 Pacientes
+            </button>
+
+            <button>
+                📊 Reportes
+            </button>
+
+            <button onclick="mostrar('inicio')">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <main class="dashboard-content">
+
+            <div class="welcome">
+
+                <h1>Usuarios</h1>
+
+                <button class="btn"
+                        onclick="alert('Formulario para crear usuario')">
+                    + Nuevo usuario
+                </button>
+
+            </div>
+
+
+            <table>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+
+                <tr>
+                    <td>María López</td>
+                    <td>Paciente</td>
+                    <td>maria@gmail.com</td>
+                    <td>Activo</td>
+                    <td>✏️ 🗑️</td>
+                </tr>
+
+                <tr>
+                    <td>Dr. Juan Pérez</td>
+                    <td>Médico</td>
+                    <td>juan@gmail.com</td>
+                    <td>Activo</td>
+                    <td>✏️ 🗑️</td>
+                </tr>
+
+                <tr>
+                    <td>Carlos Ruiz</td>
+                    <td>Paciente</td>
+                    <td>carlos@gmail.com</td>
+                    <td>Activo</td>
+                    <td>✏️ 🗑️</td>
+                </tr>
+
+            </table>
+
+        </main>
+
+    </div>
+
+</div>
+
+<script>
+
+function mostrar(pagina) {
+
+    const paginas = [
+        "inicio",
+        "login",
+        "recuperar",
+        "restablecer",
+        "registro",
+        "roles",
+        "paciente",
+        "agendar",
+        "misCitas",
+        "expediente",
+        "medico",
+        "administrador"
+    ];
+
+    paginas.forEach(function(id) {
+
+        const elemento = document.getElementById(id);
+
+        if (elemento) {
+            elemento.classList.add("oculto");
+        }
+
+    });
+
+    const paginaSeleccionada =
+        document.getElementById(pagina);
+
+    if (paginaSeleccionada) {
+        paginaSeleccionada.classList.remove("oculto");
+    }
+
+    window.scrollTo(0, 0);
+}
+
+
+function iniciarSesion() {
+
+    const correo =
+        document.getElementById("correoLogin").value;
+
+    const password =
+        document.getElementById("passwordLogin").value;
+
+    if (correo === "" || password === "") {
+
+        alert("Por favor completa todos los campos.");
+
+        return;
+    }
+
+    if (
+        correo === "demo@hospital.com" &&
+        password === "12345678"
+    ) {
+
+        mostrar("roles");
+
+    } else {
+
+        alert(
+            "Datos incorrectos.\n\n" +
+            "Usuario de prueba:\n" +
+            "demo@hospital.com\n" +
+            "12345678"
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
